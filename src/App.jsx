@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import AboutSection from './components/AboutSection'
 import BackgroundDecor from './components/BackgroundDecor'
 import CommunitySection from './components/CommunitySection'
 import ContactSection from './components/ContactSection'
@@ -114,6 +115,7 @@ function App() {
           githubStreakUrl={githubStreakUrl}
           githubStatsUrl={githubStatsUrl}
         />
+        <AboutSection />
         <ProjectsSection
           isLoadingProjects={isLoadingProjects}
           projectsError={projectsError}

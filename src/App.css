@@ -287,6 +287,141 @@ h1 span {
   font-size: clamp(1.35rem, 3vw, 2rem);
 }
 
+.about-grid {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.about-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  background: linear-gradient(165deg, rgba(12, 18, 31, 0.94), rgba(8, 13, 24, 0.8));
+}
+
+.about-intro-card {
+  grid-column: span 6;
+}
+
+.about-grid .about-card:nth-child(2),
+.about-grid .about-card:nth-child(3) {
+  grid-column: span 6;
+}
+
+.about-card-label {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.about-intro-text {
+  margin: 0.72rem 0 0;
+  color: var(--muted);
+}
+
+.about-contact-list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.about-contact-list p,
+.about-meta-row p {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+}
+
+.about-contact-list span,
+.about-meta-row span {
+  color: var(--accent);
+}
+
+.about-list,
+.about-education-list {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.about-list li,
+.about-education-list li {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.58rem 0.68rem;
+  background: rgba(3, 9, 18, 0.62);
+}
+
+.about-list p,
+.about-list span,
+.about-education-list p,
+.about-education-list h3 {
+  margin: 0;
+}
+
+.about-list span {
+  display: inline-block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+}
+
+.about-skills {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.52rem;
+}
+
+.about-skill-item p {
+  margin: 0;
+  font-size: 0.86rem;
+}
+
+.about-meter {
+  margin-top: 0.32rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.about-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 14px rgba(0, 182, 255, 0.34);
+}
+
+.about-education-list {
+  margin-bottom: 0;
+}
+
+.about-education-list h3 {
+  font-size: 0.94rem;
+}
+
+.about-education-list p {
+  margin-top: 0.22rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.about-meta-row {
+  margin-top: 0.92rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
 .project-grid {
   margin-top: 1.25rem;
   display: grid;
@@ -645,6 +780,12 @@ footer {
 }
 
 @media (max-width: 980px) {
+  .about-intro-card,
+  .about-grid .about-card:nth-child(2),
+  .about-grid .about-card:nth-child(3) {
+    grid-column: span 12;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
   }
