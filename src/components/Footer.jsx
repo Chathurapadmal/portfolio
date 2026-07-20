@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <footer>
-      <p>© 2026 Chathura. Built with React + Motion + Vibes.</p>
+    <footer className="footer">
+      <p>© 2026 Chathura. Built with React + GSAP + 3D Vibes.</p>
     </footer>
   )
 }

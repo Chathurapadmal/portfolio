@@ -1,17 +1,24 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+
 const profile = {
   intro:
-    'I am a passionate Software Engineering undergraduate with hands-on experience in full-stack development',
+    'I am a passionate Software Engineering undergraduate with hands-on experience in full-stack development, working with technologies such as React, Node.js, Java, C#, and ASP.NET. I have developed real-world applications including POS systems, event registration platforms, and management systems.',
   contact: [
     { label: 'Phone', value: '+94 769 929 298' },
     { label: 'Email', value: 'chathurapadmal3@gmail.com' },
-    { label: 'Location', value: 'Near The School, Bothalegama, Bulathsinhala' },
+    { label: 'Location', value: 'Bulathsinhala, Sri Lanka' },
     { label: 'LinkedIn', value: 'Chathura-Padmal' },
     { label: 'GitHub', value: 'ChathuraPadmal' },
   ],
-  experience: [{ title: 'Worked with FOSS Community Technical Team', period: '2025 - 2026' }],
+  experience: [
+    { title: 'FOSS Community Technical Team', period: '2025 - 2026' },
+  ],
   activities: [
     { title: 'Senior Prefect, Sripalee College', period: '2022 - 2023' },
-    { title: 'President, Photography Society, Sripalee College', period: '2022 - 2023' },
+    { title: 'President, Photography Society', period: '2022 - 2023' },
     { title: 'Council Member, FOSS Community - NSBM', period: '2025 - 2026' },
     { title: 'Club Captain, FOSS Community - NSBM', period: '2026' },
   ],
@@ -41,27 +48,94 @@ const profile = {
 }
 
 function AboutSection() {
+  const sectionRef = useRef(null)
+  const cardsRef = useRef([])
+  const metersRef = useRef([])
+  const animatedRef = useRef(false)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animatedRef.current) {
+          animatedRef.current = true
+
+          const cards = cardsRef.current.filter(Boolean)
+          gsap.fromTo(
+            cards,
+            { opacity: 0, y: 40, rotateX: 5 },
+            { opacity: 1, y: 0, rotateX: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out' },
+          )
+
+          const meters = metersRef.current.filter(Boolean)
+          if (meters.length > 0) {
+            gsap.fromTo(
+              meters,
+              { width: 0 },
+              {
+                width: (i) => `${profile.skills[i].level}%`,
+                duration: 1,
+                stagger: 0.1,
+                ease: 'power3.out',
+              },
+            )
+          }
+
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 },
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="section about" id="about">
-      <div className="section-title-wrap">
-        <p className="eyebrow">Identity Matrix</p>
-        <h2>About Me</h2>
-      </div>
+    <section className="snap-section" id="about" ref={sectionRef}>
+      <p className="sec-label">Identity Matrix</p>
+      <h2 className="sec-title">About <span>Me</span></h2>
 
       <div className="about-grid">
-        <article className="about-card about-intro-card">
+        <article
+          className="about-card"
+          ref={(el) => { cardsRef.current[0] = el }}
+          onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect()
+            const x = (e.clientX - rect.left) / rect.width - 0.5
+            const y = (e.clientY - rect.top) / rect.height - 0.5
+            e.currentTarget.style.transform = `perspective(600px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg)'
+          }}
+        >
           <p className="about-card-label">System Summary</p>
           <p className="about-intro-text">{profile.intro}</p>
           <div className="about-contact-list">
             {profile.contact.map((item) => (
-              <p key={item.label}>
+              <p key={item.label} className="about-contact-item">
                 <span>{item.label}:</span> {item.value}
               </p>
             ))}
           </div>
         </article>
 
-        <article className="about-card">
+        <article
+          className="about-card"
+          ref={(el) => { cardsRef.current[1] = el }}
+          onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect()
+            const x = (e.clientX - rect.left) / rect.width - 0.5
+            const y = (e.clientY - rect.top) / rect.height - 0.5
+            e.currentTarget.style.transform = `perspective(600px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg)'
+          }}
+        >
           <p className="about-card-label">Experience</p>
           <ul className="about-list">
             {profile.experience.map((item) => (
@@ -71,8 +145,7 @@ function AboutSection() {
               </li>
             ))}
           </ul>
-
-          <p className="about-card-label">Extra Curricular Activities</p>
+          <p className="about-card-label" style={{ marginTop: '1rem' }}>Activities</p>
           <ul className="about-list">
             {profile.activities.map((item) => (
               <li key={item.title}>
@@ -83,14 +156,26 @@ function AboutSection() {
           </ul>
         </article>
 
-        <article className="about-card">
+        <article
+          className="about-card"
+          ref={(el) => { cardsRef.current[2] = el }}
+          onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect()
+            const x = (e.clientX - rect.left) / rect.width - 0.5
+            const y = (e.clientY - rect.top) / rect.height - 0.5
+            e.currentTarget.style.transform = `perspective(600px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg)'
+          }}
+        >
           <p className="about-card-label">Skills</p>
           <div className="about-skills">
-            {profile.skills.map((skill) => (
+            {profile.skills.map((skill, i) => (
               <div key={skill.name} className="about-skill-item">
                 <p>{skill.name}</p>
                 <div className="about-meter" role="img" aria-label={`${skill.name} level ${skill.level}%`}>
-                  <span style={{ width: `${skill.level}%` }}></span>
+                  <span ref={(el) => { metersRef.current[i] = el }} />
                 </div>
               </div>
             ))}
@@ -109,12 +194,8 @@ function AboutSection() {
           </ul>
 
           <div className="about-meta-row">
-            <p>
-              <span>Language:</span> {profile.languages.join(' • ')}
-            </p>
-            <p>
-              <span>Hobbies:</span> {profile.hobbies.join(' • ')}
-            </p>
+            <p><span>Language:</span> {profile.languages.join(' • ')}</p>
+            <p><span>Hobbies:</span> {profile.hobbies.join(' • ')}</p>
           </div>
         </article>
       </div>

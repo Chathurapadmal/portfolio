@@ -1,22 +1,23 @@
 function SocialAccountsBlock({ socials }) {
   return (
-    <article className="community-block">
+    <div className="community-block">
       <h3>Social Accounts</h3>
+      <p>Connect with me beyond code</p>
       <div className="social-list">
-        {socials.map((item) => (
+        {socials.map((social) => (
           <a
-            key={`${item.platform}-${item.handle}`}
-            className="social-item"
-            href={item.url}
+            key={social.platform}
+            href={social.url}
             target="_blank"
             rel="noreferrer"
+            className="social-item"
           >
-            <p>{item.platform}</p>
-            <span>{item.handle}</span>
+            <p>{social.platform}</p>
+            <span>{social.handle}</span>
           </a>
         ))}
       </div>
-    </article>
+    </div>
   )
 }
 
