@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 
 const profile = {
   intro:
-    'I am a passionate Software Engineering undergraduate with hands-on experience in full-stack development, working with technologies such as React, Node.js, Java, C#, and ASP.NET. I have developed real-world applications including POS systems, event registration platforms, and management systems.',
+    'Enthusiastic Software Engineering undergraduate actively seeking internship opportunities in full-stack development. Experienced with React, Node.js, Java, C#, and .NET through real-world projects including POS systems, event platforms, and management systems.',
   contact: [
     { label: 'Phone', value: '+94 769 929 298' },
     { label: 'Email', value: 'chathurapadmal3@gmail.com' },

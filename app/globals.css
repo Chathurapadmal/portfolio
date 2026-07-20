@@ -821,14 +821,21 @@ a {
   margin-bottom: 1.5rem;
 }
 
+.contact-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .contact-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 999px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   background: linear-gradient(135deg, var(--accent), #00ccaa);
   color: var(--bg);
   font-weight: 600;
@@ -839,6 +846,18 @@ a {
 .contact-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 50px rgba(0, 255, 200, 0.4);
+}
+
+.contact-link.cv-link {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.contact-link.cv-link:hover {
+  background: rgba(0, 255, 200, 0.08);
+  box-shadow: 0 0 30px rgba(0, 255, 200, 0.2);
 }
 
 .footer {

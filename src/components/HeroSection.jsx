@@ -113,13 +113,13 @@ function HeroSection({ stack }) {
           <p className="hero-eyebrow">Software Engineering Undergraduate</p>
 
           <h1 className="hero-title" ref={titleRef}>
-            <div>HELLO <span className="highlight">WORLD</span></div>
+            <div>Hello <span className="highlight">Welcome</span></div>
             <div>I&apos;m <span className="outline">Chathura</span></div>
           </h1>
 
           <p className="hero-desc" ref={descRef}>
-            A passionate Software Engineering undergraduate with hands-on experience in full-stack development,
-            building scalable, user-focused solutions with modern technologies.
+            A motivated Software Engineering undergraduate seeking internship opportunities in full-stack development.
+            Proficient in React, Node.js, C#, Java, and .NET with hands-on project experience.
           </p>
 
           <div className="chip-row">
@@ -157,7 +157,7 @@ function HeroSection({ stack }) {
                 <span className="terminal-prompt">$ </span>whoami
               </span>
               <span className="terminal-line">
-                <span className="terminal-output">&gt; Chathura / React Developer</span>
+                <span className="terminal-output">&gt; Chathura / Fullstack Developer</span>
               </span>
               <span className="terminal-line">
                 <span className="terminal-prompt">$ </span>status
@@ -169,7 +169,7 @@ function HeroSection({ stack }) {
                 <span className="terminal-prompt">$ </span>now
               </span>
               <span className="terminal-line">
-                <span className="terminal-output">&gt; Open to freelance, startup, and product work.</span>
+                <span className="terminal-output">&gt; Open to FullStack Developer / Software Engineer Internships.</span>
               </span>
             </div>
           </div>

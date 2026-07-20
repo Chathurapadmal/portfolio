@@ -14,8 +14,8 @@ import Footer from './components/Footer'
 const GITHUB_PROFILE = 'chathurapadmal'
 
 const stack = [
-  'React', 'TypeScript', 'Node.js', 'Next.js',
-  'Figma', 'SQL', 'C#', 'Java',
+  'C#', 'Java','React', 'TypeScript', 'Node.js', 'Next.js', '.NET',
+  'Figma', 'SQL', 'Firebase', 'HTML/CSS',
 ]
 
 const socialAccounts = [
