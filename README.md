@@ -1,16 +1,30 @@
-# React + Vite
+# Chathura Padmal — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with Next.js, showcasing projects,
+community involvement, and contact information.
 
-Currently, two official plugins are available:
+**Live site → [chathura.site](https://chathura.site)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Built With
 
-## React Compiler
+- Next.js 16 (App Router)
+- React 19
+- GSAP (animations)
+- JavaScript / JSX
+- ESLint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Hero section with animated tech stack badges
+- About section
+- Projects — auto-fetches latest 6 GitHub repos via API
+- Community section — social accounts & event timeline
+- Contact form
+- GSAP-powered floating background animations
+- Responsive design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+```bash
+npm install
+npm run dev      # → http://localhost:3000
